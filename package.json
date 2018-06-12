@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "vue": "^2.5.2",
-    "element-ui": "^2.3.6"
+    "element-ui": "^2.3.6",
+    "mavon-editor": "^2.6.5"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

@@ -9,16 +9,13 @@
 
 <script>
 import Header from './components/common/header.vue'
-import Banner from './components/blog/Banner.vue'
-import BlogBox from './components/blog/BlogBox'
-
 export default {
   data () {
     return {
 
     }
   },
-  components: {Header,Banner,BlogBox},
+  components: {Header},
   events: {
 
   },

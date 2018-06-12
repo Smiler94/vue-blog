@@ -8,8 +8,8 @@
 </template>
 
 <script>
-  import Banner from './Banner.vue'
-  import BlogBox from './BlogBox.vue'
+  import Banner from '../Banner.vue'
+  import BlogBox from '../BlogBox.vue'
   export default {
     name: "index",
     components: {

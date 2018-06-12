@@ -1,5 +1,5 @@
-import Index from './components/blog/Index.vue'
-import Article from './components/blog/Article'
+import Index from './components/blog/page/Index'
+import Article from './components/blog/page/Article'
 
 export default [
   {
