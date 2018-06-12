@@ -1,8 +1,9 @@
 <template>
   <div id="app">
     <Header></Header>
-    <Banner id="sub_header"></Banner>
-    <BlogBox></BlogBox>
+    <div>
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
@@ -35,9 +36,5 @@ export default {
     text-align: center;
     color: #2c3e50;
     background-color: #f6f6f6;
-  }
-  #sub_header {
-    width:60%;
-    margin:10px auto;
   }
 </style>
