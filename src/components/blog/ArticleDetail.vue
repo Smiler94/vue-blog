@@ -16,14 +16,12 @@
 
 <script>
   import BlogBaseInfo from './BlogBaseInfo.vue'
-  import MavonEditor from 'mavon-editor'
+  import MarkdownIt from 'markdown-it'
   import Hljs from 'highlight.js'
-
-  let md = MavonEditor.markdownIt
-  md.configure({
+  import 'highlight.js/styles/monokai.css'
+  import '../../assets/css/markdown.css'
+  let md = new MarkdownIt({
     highlight: (str, lang) => {
-      console.log(str)
-      console.log(lang)
       if (lang && Hljs.getLanguage(lang)) {
         try {
           return Hljs.highlight(lang, str, true).value;
@@ -32,7 +30,6 @@
       return '';
     }
   })
-  console.log(Hljs.highlight('php', 'public function attch() {}', true).value)
   export default {
     name: "article",
     data () {
@@ -43,7 +40,8 @@
         "{\n" +
         "    $this->observers->attch($observer);\n" +
         "}\n" +
-        "```")
+        "```\n" +
+        "> sdfsdfasdfsdaf")
       return {
         detail: detail
       }
