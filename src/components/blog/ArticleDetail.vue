@@ -8,46 +8,22 @@
       <a href="/">个人博客</a>
       <a href="/">小世界</a>
     </div>
-    <div class="detail" v-html="detail">
-      {{detail}}
-    </div>
+    <MarkdownBody></MarkdownBody>
   </div>
 </template>
 
 <script>
-  import BlogBaseInfo from './BlogBaseInfo.vue'
-  import MarkdownIt from 'markdown-it'
-  import Hljs from 'highlight.js'
-  import 'highlight.js/styles/monokai.css'
-  import '../../assets/css/markdown.css'
-  let md = new MarkdownIt({
-    highlight: (str, lang) => {
-      if (lang && Hljs.getLanguage(lang)) {
-        try {
-          return Hljs.highlight(lang, str, true).value;
-        } catch(__) { }
-      }
-      return '';
-    }
-  })
+  import BlogBaseInfo from './BlogBaseInfo'
+  import MarkdownBody from '../common/MarkdownBody'
   export default {
     name: "article",
     data () {
-      let detail = md.render("### sdfdfs\n" +
-        "\n" +
-        "```php\n" +
-        "public function attach(\\SplObserver $observer)\n" +
-        "{\n" +
-        "    $this->observers->attch($observer);\n" +
-        "}\n" +
-        "```\n" +
-        "> sdfsdfasdfsdaf")
       return {
-        detail: detail
+
       }
     },
     components: {
-      BlogBaseInfo
+      BlogBaseInfo, MarkdownBody
     }
   }
 </script>
@@ -61,12 +37,13 @@
 
   .title {
     display: block;
-    padding-top: 30px;
+    padding: 30px 0 15px;
     text-align: left;
+    border-bottom: 1px solid rgba(27, 31, 35, 0.1);
   }
 
   #blog_base_info {
-    margin-top: 30px;
+    margin-top: 15px;
     font-weight:bold;
   }
   .tags {
@@ -83,9 +60,5 @@
     text-decoration: none;
     font-size: 15px;
     font-weight: bold;
-  }
-
-  .detail{
-    text-align:left;
   }
 </style>
