@@ -86,6 +86,7 @@
   .topic li i {
     display: block;
     opacity: 0.7;
+    -webkit-transition: 0.5s;
   }
   .topic li:hover i {
     opacity: 1;

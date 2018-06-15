@@ -1,7 +1,8 @@
 <template>
   <div class="blog_info">
     <h3 class="title">
-      <a href="/" target="_blank">别让这些闹心的套路，毁了你的网页设计!</a>
+      <a href="" target="_blank">
+        <router-link to="/article">别让这些闹心的套路，毁了你的网页设计!</router-link></a>
     </h3>
     <span class="topic">
       <a href="/" target="_blank">
@@ -36,7 +37,6 @@
     /*height:216px;*/
     background-color:#fff;
     padding:20px;
-    font-weight:bold;
   }
   .title {
     display:block;
@@ -59,7 +59,7 @@
     width:100%;
   }
   .text {
-    font-size:15px;
+    font-size:14px;
     color:#566573;
     margin-top:20px;
     text-overflow: ellipsis;

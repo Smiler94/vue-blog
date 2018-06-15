@@ -25,7 +25,7 @@
     text-decoration: none;
     display:inline-block;
     padding-left:20px;
-    font-size:14px;
+    font-size:12px;
     color: #748594;
     line-height:1.5;
     float:left;

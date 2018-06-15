@@ -16,6 +16,6 @@
 
 <style scoped>
   .blog_info {
-    margin-top: 10px;
+    display: inline-block;
   }
 </style>

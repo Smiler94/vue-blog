@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header></Header>
-    <div>
+    <div id="router_view">
       <router-view></router-view>
     </div>
   </div>
@@ -27,11 +27,15 @@ export default {
 
 <style scoped>
   #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    font-family: 'Microsoft YaHei', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
     background-color: #f6f6f6;
+  }
+
+  #router_view {
+    width: 100%;
   }
 </style>
