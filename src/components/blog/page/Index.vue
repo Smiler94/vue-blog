@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="index">
     <Banner id="sub_header"></Banner>
     <div id="blog">
       <BlogBox id="blog_box"></BlogBox>
@@ -21,13 +21,15 @@
 </script>
 
 <style scoped>
+  .index {
+    width: 1140px;
+    margin: 0 auto;
+  }
   #sub_header {
-    width:60%;
     margin:10px auto;
     height:451px;
   }
   #blog {
-    width:60%;
     margin:10px auto;
     text-align: left;
   }

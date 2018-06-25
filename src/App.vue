@@ -4,18 +4,20 @@
     <div id="router_view">
       <router-view></router-view>
     </div>
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
 import Header from './components/common/header.vue'
+import Footer from './components/common/Footer'
 export default {
   data () {
     return {
 
     }
   },
-  components: {Header},
+  components: {Header, Footer},
   events: {
 
   },
