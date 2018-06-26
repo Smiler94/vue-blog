@@ -2,7 +2,7 @@
   <div class="article">
     <BreadCrumb id="bread_crumb"></BreadCrumb>
     <div class="content">
-      <ArticleDetail id="article_detail"></ArticleDetail>
+      <ArticleDetail id="article_detail" :article_id="article_id"></ArticleDetail>
       <FollowUs id="follow_us"></FollowUs>
     </div>
   </div>
@@ -16,6 +16,17 @@
     name: "article",
     components: {
       BreadCrumb,ArticleDetail,FollowUs
+    },
+    data() {
+      return {
+        article_id: 0
+      }
+    },
+    mounted () {
+      this.$nextTick(() => {
+        let articleId = this.$route.params.id;
+        this.article_id = articleId
+      })
     }
   }
 </script>

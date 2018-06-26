@@ -2,14 +2,14 @@
   <div class="article_detail">
     <div class="article_content">
       <h2 class="title">
-        个人博客，属于我的小世界！
+        {{title}}
       </h2>
       <BlogBaseInfo id="blog_base_info"></BlogBaseInfo>
       <div class="tags">
         <a href="/">个人博客</a>
         <a href="/">小世界</a>
       </div>
-      <MarkdownBody></MarkdownBody>
+      <MarkdownBody :content="content"></MarkdownBody>
     </div>
   </div>
 </template>
@@ -17,15 +17,29 @@
 <script>
   import BlogBaseInfo from './BlogBaseInfo'
   import MarkdownBody from '../common/MarkdownBody'
+  import ArticleApi from '../../api/article'
   export default {
     name: "article",
     data () {
       return {
-
+        title: '',
+        content: '',
+        cate: ''
       }
     },
     components: {
       BlogBaseInfo, MarkdownBody
+    },
+    props: ['article_id'],
+    watch: {
+      article_id (val, oldVal) {
+        ArticleApi.getById(val).then(res => {
+          if (res.code === 0) {
+            this.title = res.info.title
+            this.content =res.info.content
+          }
+        })
+      }
     }
   }
 </script>

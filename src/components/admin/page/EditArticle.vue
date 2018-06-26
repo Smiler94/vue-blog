@@ -10,9 +10,9 @@
           <el-input type="textarea" v-model="articleForm.description"></el-input>
         </el-form-item>
         <el-form-item label="分类">
-          <el-select placeholder="请选择分类" v-model="articleForm.type">
-            <el-option label="php" value="php"></el-option>
-            <el-option label="python" value="python"></el-option>
+          <el-select placeholder="请选择分类" v-model="articleForm.cate_id">
+            <el-option label="php" value="1"></el-option>
+            <el-option label="python" value="2"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item label="内容">
@@ -34,14 +34,14 @@
 
 <script>
   import BreadCrumb from '../../common/BreadCrumb'
+  import ArticleApi from '../../../api/article'
   export default {
     name: "edit-article",
     data () {
       return {
         articleForm: {
           title: '',
-          description: '',
-          type: '',
+          cate_id: '',
           content: ''
         }
       }
@@ -55,6 +55,12 @@
       },
       submitForm() {
         console.log(this.articleForm)
+        let res = ArticleApi.create({
+          title: this.articleForm.title,
+          cate_id: this.articleForm.cate_id,
+          content: this.articleForm.content
+        })
+        console.log(res)
       }
     }
   }
