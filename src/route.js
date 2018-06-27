@@ -7,6 +7,7 @@ export default [
     component: Index
   },
   {
+    name: 'article',
     path: '/article/:id',
     component: Article
   },

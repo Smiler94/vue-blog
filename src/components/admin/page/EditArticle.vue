@@ -6,13 +6,14 @@
         <el-form-item label="标题">
           <el-input v-model="articleForm.title"></el-input>
         </el-form-item>
-        <el-form-item label="描述">
-          <el-input type="textarea" v-model="articleForm.description"></el-input>
-        </el-form-item>
         <el-form-item label="分类">
           <el-select placeholder="请选择分类" v-model="articleForm.cate_id">
-            <el-option label="php" value="1"></el-option>
-            <el-option label="python" value="2"></el-option>
+            <el-option v-for="cate in categories" :key="cate.id" :label="cate.name" :value="cate.id"></el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="标签">
+          <el-select placeholder="请输入或选择标签" v-model="articleForm.tags" multiple filterable allow-create default-first-option >
+            <el-option v-for="tag in tags" :key="tag.id" :label="tag.name" :value="tag.name"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item label="内容">
@@ -22,7 +23,7 @@
           <el-button @click="resetForm('articleForm')">
             重置
           </el-button>
-          <el-button type="primary" @click="submitForm('articleForm')">
+          <el-button type="primary" @click="submitForm()">
             发布
           </el-button>
         </el-form-item>
@@ -35,6 +36,8 @@
 <script>
   import BreadCrumb from '../../common/BreadCrumb'
   import ArticleApi from '../../../api/article'
+  import CategoryApi from '../../../api/category'
+  import TagApi from '../../../api/tag'
   export default {
     name: "edit-article",
     data () {
@@ -42,8 +45,11 @@
         articleForm: {
           title: '',
           cate_id: '',
-          content: ''
-        }
+          content: '',
+          tags: []
+        },
+        categories: [],
+        tags: []
       }
     },
     components: {
@@ -54,14 +60,27 @@
         this.$refs[formName].resetFields();
       },
       submitForm() {
-        console.log(this.articleForm)
-        let res = ArticleApi.create({
-          title: this.articleForm.title,
-          cate_id: this.articleForm.cate_id,
-          content: this.articleForm.content
+        ArticleApi.create(this.articleForm).then((res) => {
+          if (res.code == 0) {
+            this.$router.push({
+              name: 'article',
+              params: {
+                id: res.info
+              }
+            })
+          }
         })
-        console.log(res)
       }
+    },
+    mounted () {
+      this.$nextTick((e) => {
+        CategoryApi.getAll().then((res) => {
+          this.categories = res.info;
+        })
+        TagApi.getAll().then((res) => {
+          this.tags = res.info
+        })
+      })
     }
   }
 </script>

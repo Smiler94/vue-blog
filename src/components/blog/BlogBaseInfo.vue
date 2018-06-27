@@ -2,9 +2,9 @@
   <div class="info">
     <ul>
       <li class="author">林祯</li>
-      <li class="lmname">学无止境</li>
-      <li class="time">2018-06-12</li>
-      <li class="view"><span>24567</span>已阅读</li>
+      <li class="lmname">{{baseInfo.category}}</li>
+      <li class="time">{{baseInfo.createTime}}</li>
+      <li class="view"><span>{{baseInfo.click}}</span>已阅读</li>
       <li class="like">999</li>
     </ul>
   </div>
@@ -12,7 +12,8 @@
 
 <script>
     export default {
-        name: "blog-base-info"
+      name: "blog-base-info",
+      props: ['baseInfo']
     }
 </script>
 
@@ -45,5 +46,8 @@
   }
   .like {
     background: url(../../assets/auicon.jpg) no-repeat top -85px left;
+  }
+  .view span {
+    padding:2px;
   }
 </style>

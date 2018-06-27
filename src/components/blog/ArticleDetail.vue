@@ -4,10 +4,9 @@
       <h2 class="title">
         {{title}}
       </h2>
-      <BlogBaseInfo id="blog_base_info"></BlogBaseInfo>
+      <BlogBaseInfo id="blog_base_info" :baseInfo="baseInfo"></BlogBaseInfo>
       <div class="tags">
-        <a href="/">个人博客</a>
-        <a href="/">小世界</a>
+        <a href="/" v-for="tag in tags" :key="tag.id">{{tag.name}}</a>
       </div>
       <MarkdownBody :content="content"></MarkdownBody>
     </div>
@@ -24,7 +23,13 @@
       return {
         title: '',
         content: '',
-        cate: ''
+        cate: '',
+        baseInfo: {
+          category: '',
+          createTime: '',
+          click: 0
+        },
+        tags: []
       }
     },
     components: {
@@ -35,8 +40,13 @@
       article_id (val, oldVal) {
         ArticleApi.getById(val).then(res => {
           if (res.code === 0) {
-            this.title = res.info.title
-            this.content =res.info.content
+            let info = res.info
+            this.title = info.title
+            this.content = info.content
+            this.baseInfo.category = info.category.name
+            this.baseInfo.createTime = info.created_at
+            this.baseInfo.click = info.click
+            this.tags = info.tags
           }
         })
       }
