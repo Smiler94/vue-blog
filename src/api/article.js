@@ -6,5 +6,8 @@ export default{
   },
   getById: (id) => {
     return http.fetchGet('/article/'+id, {})
+  },
+  list: (page) => {
+    return http.fetchGet('/listing?page='+page, {})
   }
 }

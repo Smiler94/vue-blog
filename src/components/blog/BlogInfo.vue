@@ -2,7 +2,7 @@
   <div class="blog_info">
     <h3 class="title">
       <a href="" target="_blank">
-        <router-link to="/article">别让这些闹心的套路，毁了你的网页设计!</router-link></a>
+        <router-link :to="'/article/'+article.id">{{article.title}}</router-link></a>
     </h3>
     <span class="topic">
       <a href="/" target="_blank">
@@ -10,9 +10,9 @@
       </a>
     </span>
     <p class="text">
-      如图，要实现上图效果，我采用如下方法：1、首先在数据库模型，增加字段，分别是图片2，图片3。2、增加标签模板，用if，else if 来判断，输出。思路已打开，样式调用就可以多样化啦！...
+      {{article.content}}
     </p>
-    <BlogBaseInfo id="blog_base_info"></BlogBaseInfo>
+    <BlogBaseInfo id="blog_base_info" :baseInfo="baseInfo"></BlogBaseInfo>
   </div>
 </template>
 
@@ -25,10 +25,20 @@
       return {
         images: {
           topic1 : topic1
-        }
+        },
+        baseInfo: {}
       }
     },
-    components: {BlogBaseInfo}
+    components: {BlogBaseInfo},
+    props:['article'],
+    mounted () {
+      this.baseInfo = {
+        category: this.article.category.name,
+        click: this.article.click,
+        createTime: this.article.created_at
+      }
+      this.article.content = this.article.content.slice(0,80)
+    }
   }
 </script>
 
@@ -37,6 +47,7 @@
     /*height:216px;*/
     background-color:#fff;
     padding:20px;
+    margin-bottom: 20px;
   }
   .title {
     display:block;

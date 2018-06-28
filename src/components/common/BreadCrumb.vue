@@ -1,11 +1,11 @@
 <template>
   <div class="bread_crumb">
-    <span class="mt">网站首页</span>
-    <span class="nt">慢生活</span>
+    <span class="mt"><router-link to="/">网站首页</router-link></span>
+    <span class="nt"><router-link to="/">程序人生</router-link></span>
     <el-breadcrumb separator-class="el-icon-arrow-right" class="crumb">
-      <el-breadcrumb-item :to="{path:'/'}">首页</el-breadcrumb-item>
-      <el-breadcrumb-item>慢生活</el-breadcrumb-item>
+      <el-breadcrumb-item to="/">首页</el-breadcrumb-item>
       <el-breadcrumb-item>程序人生</el-breadcrumb-item>
+      <el-breadcrumb-item>PHP</el-breadcrumb-item>
     </el-breadcrumb>
   </div>
 </template>
@@ -26,13 +26,16 @@
     display:block;
     float:left;
     height: 100%;
-    color: #fff;
     font-size: 15px;
     font-weight: bold;
     padding: 0 20px;
   }
   .mt {
     background-color: #000;
+  }
+  .mt a,.nt a{
+    text-decoration: none;
+    color: #fff;
   }
   .nt {
     background-color: #3a6ab5;

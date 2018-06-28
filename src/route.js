@@ -4,12 +4,18 @@ import EditArticle from './components/admin/page/EditArticle'
 export default [
   {
     path: '/',
-    component: Index
+    component: Index,
+    meta: {
+      keepAlive: true
+    }
   },
   {
     name: 'article',
     path: '/article/:id',
-    component: Article
+    component: Article,
+    meta: {
+      keepAlive: false
+    }
   },
   {
     path: '/admin/edit',

@@ -29,7 +29,7 @@
   import topic1 from '../../assets/toppic01.jpg';
   import zd1 from '../../assets/zd01.jpg';
   export default {
-    name: "sub_header.vue",
+    name: "banner",
     data() {
       return {
         banner_img: [
