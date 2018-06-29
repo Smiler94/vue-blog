@@ -18,9 +18,7 @@
       }
     },
     mounted () {
-      this.$nextTick(() => {
-        this.getList(1)
-      })
+      this.getList(1)
     },
     methods: {
       getList (page) {

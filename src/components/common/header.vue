@@ -8,10 +8,10 @@
         background-color="#545c64"
         text-color="#fff"
         active-text-color="#fff">
-        <el-menu-item index="1">网站首页</el-menu-item>
-        <el-menu-item index="2">学无止境</el-menu-item>
-        <el-menu-item index="3">关于我</el-menu-item>
-        <el-menu-item index="4">给我留言</el-menu-item>
+        <!--<el-menu-item index="1">网站首页</el-menu-item>-->
+        <!--<el-menu-item index="2">学无止境</el-menu-item>-->
+        <!--<el-menu-item index="3">关于我</el-menu-item>-->
+        <!--<el-menu-item index="4">给我留言</el-menu-item>-->
       </el-menu>
     </div>
   </div>
@@ -32,7 +32,8 @@
 </script>
 <style scoped>
   .menu {
-    background-color: #545c64;
+    /*background-color: #304147;*/
+    background: url(../../assets/images/bg.jpg) no-repeat fixed;
     color:#fff;
     height: 80px;
   }

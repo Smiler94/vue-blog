@@ -16,7 +16,7 @@
   export default {
     name: "markdown-body",
     data() {
-
+      return {}
     },
     props: ['content']
   }

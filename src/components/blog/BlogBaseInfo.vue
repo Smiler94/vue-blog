@@ -13,7 +13,12 @@
 <script>
     export default {
       name: "blog-base-info",
-      props: ['baseInfo']
+      props: ['baseInfo'],
+      data() {
+        return {
+
+        }
+      }
     }
 </script>
 

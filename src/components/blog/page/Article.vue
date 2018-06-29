@@ -23,10 +23,8 @@
       }
     },
     mounted () {
-      this.$nextTick(() => {
-        let articleId = this.$route.params.id;
-        this.article_id = articleId
-      })
+      let articleId = this.$route.params.id;
+      this.article_id = articleId
     }
   }
 </script>
